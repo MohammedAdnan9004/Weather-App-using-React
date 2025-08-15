@@ -10,7 +10,7 @@ function App() {
 
   const API_KEY = "30965d3c741931fe1052752e42e68884";
   const fetchWeatherByCity = async (cityName) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
+    const url = `https://api.openweathermap.org/2.5/weather=${encodeURIComponent(
       cityName
     )}&units=metric&appid=${API_KEY}`;
 
@@ -44,7 +44,7 @@ function App() {
     navigator.geolocation.getCurrentPosition(
       async (position) => {
         const { latitude, longitude } = position.coords;
-        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${API_KEY}`;
+        const url = `https://api.openweathermap.org/data/weather=${latitude}&lon=${longitude}&units=metric&appid=${API_KEY}`;
 
         try {
           const response = await axios.get(url);
